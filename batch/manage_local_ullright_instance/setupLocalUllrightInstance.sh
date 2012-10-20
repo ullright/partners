@@ -67,7 +67,7 @@ echo "Creating hosts entry"
 echo "127.0.0.1       $ULLRIGHTNAME" >> /etc/hosts
 
 echo "Creating apache vhost"
-cat `dirname $0`/ullright_example | sed "s/example/$NAME/g" > /etc/apache2/sites-available/$ULLRIGHTNAME
+cat /etc/apache2/sites-available/ullright_example | sed "s/example/$NAME/g" > /etc/apache2/sites-available/$ULLRIGHTNAME
 a2ensite $ULLRIGHTNAME
 apachectl restart
 
