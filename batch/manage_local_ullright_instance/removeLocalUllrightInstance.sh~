@@ -81,7 +81,7 @@ rm /etc/apache2/sites-available/$ULLRIGHTNAME
 
 echo "Remove database $UNDERSCORENAME"
 mysql -u $MYSQLUSER --password=$MYSQLPASS --execute "DROP DATABASE $UNDERSCORENAME;"
-mysql -u $MYSQLUSER --password=$MYSQLPASS --execute "DROP USER $UNDERSCORENAME@localhost;"
+mysql -u $MYSQLUSER --password=$MYSQLPASS --execute "DROP USER $UNDERSCORENAME@localhost';"
 mysql -u $MYSQLUSER --password=$MYSQLPASS --execute "FLUSH PRIVILEGES;"
 
 echo "Remove project dir"
