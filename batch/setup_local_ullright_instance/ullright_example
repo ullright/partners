@@ -1,0 +1,16 @@
+<VirtualHost *>
+  ServerName ullright_example
+  DocumentRoot /var/www/ullright_example/web
+    <Directory /var/www/ullright_example/web>
+        AllowOverride All
+        Allow from All
+    </Directory>
+    <Directory /var/www/ullright_example/web/uploads>
+        # Disable rewrite in upload dir (fix to get FCKeditor uploads working)
+        RewriteEngine off
+        # Disable script execution
+        AddHandler cgi-script .php .php3 .php4 .phtml .pl .py .jsp .asp .htm .shtml .sh .cgi
+        Options -ExecCGI
+    </Directory>
+</VirtualHost>
+
