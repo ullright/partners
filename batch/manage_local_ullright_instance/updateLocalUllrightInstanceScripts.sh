@@ -16,18 +16,18 @@ wget -N https://raw.github.com/ullright/partners/master/batch/manage_local_ullri
 wget -N https://raw.github.com/ullright/partners/master/batch/manage_local_ullright_instance/removeLocalUllrightInstance.sh
 wget -N https://raw.github.com/ullright/partners/master/batch/manage_local_ullright_instance/updateLocalUllrightInstanceScripts.sh
 
-if [ ! -f /usr/local/bin/setupLocalUllrightInstance.sh.cfg ]
+if [ ! -f /usr/local/bin/manageLocalUllrightInstance.config ]
 then
   echo No configuration file found. Downloading...
-  wget https://raw.github.com/ullright/partners/master/batch/manage_local_ullright_instance/setupLocalUllrightInstance.sh.cfg
+  wget https://raw.github.com/ullright/partners/master/batch/manage_local_ullright_instance/manageLocalUllrightInstance.config
   echo 
-  echo Please edit the configuration file /usr/local/bin/setupLocalUllrightInstance.sh.cfg
+  echo Please edit the configuration file /usr/local/bin/manageLocalUllrightInstance.config
   echo 
 fi
 
 echo "Fixing permissions"
-chmod 0700 *LocalUllrightInstance*.sh
-chmod 0600 setupLocalUllrightInstance.sh.cfg
+chmod 0755 *LocalUllrightInstance*.sh
+chmod 0600 manageLocalUllrightInstance.config
 
 echo "Getting/updating example apache vhost file"
 cd /etc/apache2/sites-available

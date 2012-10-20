@@ -20,14 +20,14 @@ if [ -z "$1" ]; then
 fi
 
 # Include local configuration
-source `dirname $0`/`basename $0`.cfg
+source `dirname $0`/manageLocalUllrightInstance.config
 
 # Validate local configuration variables
 # "-z" = "string is empty"
 if [ -z $UNIXUSER ] || [ -z $EMAIL ] || [ -z $MYSQLUSER ] || [ -z $MYSQLPASS ] ; then
     echo
     echo Required configuration variables not set
-    echo Please supply a local configuration file \"`basename $0`.cfg\" like the following
+    echo Please supply a local configuration file \"manageLocalUllrightInstance.config\" like the following
     echo and make sure all variables are set:
     echo
     echo \# Change to your needs
