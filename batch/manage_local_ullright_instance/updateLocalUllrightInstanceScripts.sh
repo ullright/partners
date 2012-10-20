@@ -11,8 +11,10 @@ echo
 cd /usr/local/bin
 
 echo Getting/updating scripts
-wget https://raw.github.com/ullright/partners/master/batch/manage_local_ullright_instance/setupLocalUllrightInstance.sh
-wget https://raw.github.com/ullright/partners/master/batch/manage_local_ullright_instance/removeLocalUllrightInstance.sh
+# -N = overwrite when downloaded file is newer
+wget -N https://raw.github.com/ullright/partners/master/batch/manage_local_ullright_instance/setupLocalUllrightInstance.sh
+wget -N https://raw.github.com/ullright/partners/master/batch/manage_local_ullright_instance/removeLocalUllrightInstance.sh
+wget -N https://raw.github.com/ullright/partners/master/batch/manage_local_ullright_instance/updateLocalUllrightInstanceScripts.sh
 
 if [ ! -f /usr/local/bin/setupLocalUllrightInstance.sh.cfg ]
 then
@@ -20,11 +22,16 @@ then
   wget https://raw.github.com/ullright/partners/master/batch/manage_local_ullright_instance/setupLocalUllrightInstance.sh.cfg
   echo 
   echo Please edit the configuration file /usr/local/bin/setupLocalUllrightInstance.sh.cfg
+  echo 
 fi
 
+echo "Fixing permissions"
+chmod 0700 *LocalUllrightInstance*.sh
+chmod 0600 setupLocalUllrightInstance.sh.cfg
+
 echo "Getting/updating example apache vhost file"
-cd /etc/apache/sites-available
-wget https://raw.github.com/ullright/partners/master/batch/manage_local_ullright_instance/ullright_example
+cd /etc/apache2/sites-available
+wget -N https://raw.github.com/ullright/partners/master/batch/manage_local_ullright_instance/ullright_example
 
 cd `dirname $0` 
 
